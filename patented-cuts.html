@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patented Cuts — Bez Ambar | Innovations That Changed Diamond History</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* --- Page Hero --- */
+        .page-hero {
+            width: 100%;
+            padding: 10rem 2rem 5rem;
+            background: #0d0d0d;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        /* --- Cut Detail Row --- */
+        .cut-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 4rem;
+        }
+        .cut-detail.reverse {
+            direction: rtl;
+        }
+        .cut-detail.reverse > * {
+            direction: ltr;
+        }
+        .cut-detail-img {
+            aspect-ratio: 1;
+            background: #111;
+            overflow: hidden;
+        }
+        .cut-detail-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- CTA Section --- */
+        .cuts-cta {
+            background: #111;
+            padding: 5rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .page-hero { padding: 8rem 1.5rem 3rem; }
+            .cut-detail {
+                grid-template-columns: 1fr;
+                padding: 3rem 1.5rem;
+                gap: 2rem;
+            }
+            .cut-detail.reverse {
+                direction: ltr;
+            }
+            .cut-detail-img {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-left-group">
+                <button class="mobile-nav-toggle" onclick="toggleMobileNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+                <span class="menu-label" onclick="toggleMobileNav()">Menu</span>
+                <button class="header-icon-btn header-search-btn" aria-label="Search">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </button>
+            </div>
+            <a href="index.html" class="logo">Bez Ambar</a>
+            <div class="header-right-group">
+                <a href="contact.html" class="header-contact-link">Contact Us</a>
+                <a href="#" class="header-icon-btn" aria-label="Wishlist">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </a>
+                <a href="#" class="header-icon-btn" aria-label="Account">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </a>
+            </div>
+            <div class="mobile-nav-overlay" id="mobileNav">
+                <a href="collection.html">Recent Creations</a>
+                <span class="mobile-cat-label">Categories</span>
+                <a href="collection.html" class="mobile-cat-link">All Jewelry</a>
+                <a href="collection.html?cat=rings" class="mobile-cat-link">Rings</a>
+                <a href="collection.html?cat=engagement-rings" class="mobile-cat-link mobile-sub-link">Engagement Rings</a>
+                <a href="collection.html?cat=wedding-bands" class="mobile-cat-link mobile-sub-link">Wedding Bands</a>
+                <a href="collection.html?cat=mens-wedding-bands" class="mobile-cat-link mobile-sub-link">Men's Wedding Bands</a>
+                <a href="collection.html?cat=pendants" class="mobile-cat-link">Pendants</a>
+                <a href="collection.html?cat=necklaces" class="mobile-cat-link">Necklaces</a>
+                <a href="collection.html?cat=earrings" class="mobile-cat-link">Earrings</a>
+                <a href="collection.html?cat=stud-earrings" class="mobile-cat-link mobile-sub-link">Stud Earrings</a>
+                <a href="collection.html?cat=hug-earrings" class="mobile-cat-link mobile-sub-link">Hug Earrings</a>
+                <a href="collection.html?cat=hoop-earrings" class="mobile-cat-link mobile-sub-link">Hoop Earrings</a>
+                <a href="collection.html?cat=bracelets" class="mobile-cat-link">Bracelets</a>
+                <a href="video-gallery.html">Bespoke Commissions</a>
+                <a href="our-story.html" class="mobile-cat-label" style="text-decoration:none;">Our Story</a>
+                <a href="about.html" class="mobile-cat-link">The Inventor</a>
+                <a href="the-bez-ambar-story.html" class="mobile-cat-link">The Bez Ambar Story</a>
+                <a href="journal.html" class="mobile-cat-link">Journal</a>
+                <a href="blog.html" class="mobile-cat-link">Blog</a>
+                <a href="diamond-education.html" class="mobile-cat-link">Diamond Education</a>
+                <a href="ring-size-chart.html" class="mobile-cat-link">Ring Size Chart</a>
+                <a href="catalogs.html" class="mobile-cat-link">Catalogs</a>
+                <a href="warranty.html" class="mobile-cat-link">Warranty</a>
+                <a href="press.html" class="mobile-cat-link">Press</a>
+            </div>
+        </div>
+    </header>
+    <div class="nav-backdrop" id="navBackdrop"></div>
+
+    <!-- ==================== PAGE HERO ==================== -->
+    <section class="page-hero">
+        <div style="max-width:800px; margin:0 auto;">
+            <p class="eyebrow">Patented Innovations</p>
+            <h1 style="font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,5vw,4rem); font-weight:300; color:#fff; margin-bottom:1.5rem; line-height:1.1;">Cuts that exist <em style="font-style:italic; color:#c5a258;">nowhere else</em> in the world.</h1>
+            <p style="font-family:'Montserrat',sans-serif; font-size:0.85rem; color:#888; line-height:1.9; max-width:600px; margin:0 auto;">Six patented innovations. Four decades of mastery. Every cut designed, engineered, and perfected by Bez Ambar in his Los Angeles atelier.</p>
+        </div>
+    </section>
+
+    <!-- ==================== QUADRILLION (PRINCESS CUT) ==================== -->
+    <section style="background:#0d0d0d; border-top:1px solid rgba(255,255,255,0.06);">
+        <div class="cut-detail">
+            <div>
+                <p style="font-family:'Montserrat',sans-serif; font-size:0.55rem; letter-spacing:0.25em; text-transform:uppercase; color:#c5a258; margin-bottom:0.75rem;">Patented &middot; 1982</p>
+                <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:300; color:#fff; margin-bottom:1.5rem; line-height:1.15;">Quadrillion&reg;<br><em style="font-style:italic; color:#c5a258;">The Princess Cut</em></h2>
+                <p style="font-family:'Montserrat',sans-serif; font-size:0.8rem; line-height:1.9; color:#888; margin-bottom:1.5rem;">In 1982, Bez Ambar unveiled the Quadrillion&reg; &mdash; a square brilliant-cut diamond with a geometry so revolutionary it ignited a global transformation in diamond design. The world came to know it as the Princess Cut.</p>
+                <p style="font-family:'Montserrat',sans-serif; font-size:0.8rem; line-height:1.9; color:#888; margin-bottom:1.5rem;">Today, the Princess Cut is the second most popular diamond shape on earth, found on tens of millions of engagement rings worldwide. Every single one traces back to this invention &mdash; to one man, in one atelier, in Los Angeles.</p>
+                <p style="font-family:'Montserrat',sans-serif; font-size:0.8rem; line-height:1.9; color:#888;">The Quadrillion's 49-facet design maximizes brilliance while its square profile allows for virtually seamless channel settings &mdash; an impossibility with round cuts.</p>
+            </div>
+            <div class="cut-detail-img">
+                <img src="https://res.cloudinary.com/dlg2mou53/image/upload/f_auto,q_auto/v1775786208/Quadrillion_owciyv.jpg" alt="The Quadrillion — Princess Cut Diamond by Bez Ambar">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BLAZE CUT ==================== -->
+    <section style="background:#0a0a0a; border-top:1px solid rgba(255,255,255,0.06);">
+        <div class="cut-detail reverse">
+            <div>
+                <p style="font-family:'Montserrat',sans-serif; font-size:0.55rem; letter-spacing:0.25em; text-transform:uppercase; color:#c5a258; margin-bottom:0.75rem;">Patented &middot; 2003</p>
+                <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:300; color:#fff; margin-bottom:1.5rem; line-height:1.15;">Blaze&reg; Cut</h2>
+                <p style="font-family:'Montserrat',sans-serif; font-size:0.8rem; line-height:1.9; color:#888; margin-bottom:1.5rem;">A proprietary diamond frame cut engineered to expand the apparent size of a center stone while dramatically intensifying its fire. No other cutter in the world can produce this effect.</p>
+                <p style="font-family:'Montserrat',sans-serif; font-size:0.8rem; line-height:1.9; color:#888; margin-bottom:1.5rem;">The Blaze Cut uses a patented arrow-shaped facet pattern that acts as a prism, drawing light from the surrounding diamonds and reflecting it back through the center stone. The result: a ring that appears significantly larger and more brilliant than its carat weight would suggest.</p>
+                <p style="font-family:'Montserrat',sans-serif; font-size:0.8rem; line-height:1.9; color:#888;">Available exclusively in Bez Ambar settings. Protected by U.S. patent.</p>
+            </div>
+            <div class="cut-detail-img">
+                <img src="https://res.cloudinary.com/dlg2mou53/image/upload/f_auto,q_auto,w_800/BezAmbar-OldSite/2023/blaze-cut-detail.jpg" alt="The Blaze Cut Diamond by Bez Ambar">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DIVINE CUT ==================== -->
+    <section style="background:#0d0d0d; border-top:1px solid rgba(255,255,255,0.06);">
+        <div class="cut-detail">
+            <div>
+                <p style="font-family:'Montserrat',sans-serif; font-size:0.55rem; letter-spacing:0.25em; text-transform:uppercase; color:#c5a258; margin-bottom:0.75rem;">Patented &middot; 2015</p>
+                <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:300; color:#fff; margin-bottom:1.5rem; line-height:1.15;">Divine Cut&reg;</h2>
+                <p style="font-family:'Montserrat',sans-serif; font-size:0.8rem; line-height:1.9; color:#888; margin-bottom:1.5rem;">A round brilliant reimagined from the ground up. The Divine Cut adds additional facets engineered for maximum dispersion &mdash; producing fire visible from across a room.</p>
+                <p style="font-family:'Montserrat',sans-serif; font-size:0.8rem; line-height:1.9; color:#888; margin-bottom:1.5rem;">Where a traditional round brilliant has 57 facets, the Divine Cut's proprietary geometry creates light performance that surpasses conventional cuts in every measurable dimension: brilliance, fire, and scintillation.</p>
+                <p style="font-family:'Montserrat',sans-serif; font-size:0.8rem; line-height:1.9; color:#888;">Bez Ambar's most recent patent &mdash; and, many say, his most extraordinary achievement.</p>
+            </div>
+            <div class="cut-detail-img">
+                <img src="https://res.cloudinary.com/dlg2mou53/image/upload/f_auto,q_auto,w_800/BezAmbar-OldSite/2023/divine-cut-detail.jpg" alt="The Divine Cut Diamond by Bez Ambar">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ADDITIONAL INNOVATIONS ==================== -->
+    <section style="background:#0a0a0a; padding:5rem 2rem; border-top:1px solid rgba(255,255,255,0.06);">
+        <div style="max-width:1200px; margin:0 auto; text-align:center;">
+            <p class="eyebrow">More Innovations</p>
+            <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:300; color:#fff; margin-bottom:3.5rem;">Six patents. <em style="font-style:italic; color:#c5a258;">One atelier.</em></h2>
+            <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:2px; max-width:1000px; margin:0 auto;">
+                <div style="background:#111; padding:3rem 2rem;">
+                    <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; color:#fff; margin-bottom:0.75rem;">Micro-Pav&eacute;</h3>
+                    <p style="font-family:'Montserrat',sans-serif; font-size:0.75rem; line-height:1.8; color:#888;">Bez Ambar pioneered the micro-pav&eacute; setting technique &mdash; diamonds set so closely they appear to float as a continuous surface of light.</p>
+                </div>
+                <div style="background:#111; padding:3rem 2rem;">
+                    <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; color:#fff; margin-bottom:0.75rem;">Invisible Setting</h3>
+                    <p style="font-family:'Montserrat',sans-serif; font-size:0.75rem; line-height:1.8; color:#888;">An advanced channel technique that conceals all metal, allowing princess-cut diamonds to lock together in a seamless mosaic of brilliance.</p>
+                </div>
+                <div style="background:#111; padding:3rem 2rem;">
+                    <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; color:#fff; margin-bottom:0.75rem;">Tension Setting</h3>
+                    <p style="font-family:'Montserrat',sans-serif; font-size:0.75rem; line-height:1.8; color:#888;">A diamond held by the pressure of the band itself &mdash; no prongs, no bezels. The stone appears to float in mid-air. Engineering as art.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA ==================== -->
+    <section class="cuts-cta">
+        <div style="max-width:700px; margin:0 auto;">
+            <p class="eyebrow">Begin Your Commission</p>
+            <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,3vw,2.8rem); font-weight:300; color:#fff; margin-bottom:1rem;">Experience these cuts <em style="font-style:italic; color:#c5a258;">in person.</em></h2>
+            <p style="font-family:'Montserrat',sans-serif; font-size:0.78rem; color:#888; line-height:1.8; margin-bottom:2.5rem;">Visit our Los Angeles atelier or connect with an authorized Bez Ambar jeweler near you.</p>
+            <a href="contact.html" class="btn btn-secondary" style="margin-right:1rem; margin-bottom:1rem;">Book a Consultation</a>
+            <a href="contact.html?subject=retailer" class="btn btn-secondary">Find an Authorized Jeweler</a>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <a href="collection.html">Recent Creations</a>
+                    <a href="our-story.html">Our Story</a>
+                    <a href="about.html">The Inventor</a>
+                    <a href="journal.html">Journal</a>
+                    <a href="blog.html">Blog</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="contact.html">Bespoke Design</a>
+                    <a href="contact.html">Repairs &amp; Cleaning</a>
+                    <a href="contact.html">Personalization</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Help</h4>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="mailto:bez@bezambar.com">Email Us</a>
+                    <a href="ring-size-chart.html">Ring Size Chart</a>
+                    <a href="diamond-education.html">Diamond Education</a>
+                    <a href="warranty.html">Warranty</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Visit</h4>
+                    <p>611 Wilshire Blvd</p>
+                    <p>Los Angeles, CA 90017</p>
+                    <p style="margin-top:8px;"><a href="mailto:bez@bezambar.com">bez@bezambar.com</a></p>
+                    <p><a href="https://www.bezambar.com" target="_blank">www.bezambar.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo">BEZ AMBAR</div>
+                <div class="footer-legal">
+                    &copy; 2026 Bez Ambar Inc. All rights reserved.
+                    &nbsp;&middot;&nbsp;
+                    <a href="#">Privacy Policy</a>
+                    &nbsp;&middot;&nbsp;
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    function toggleMobileNav() {
+        var toggle = document.querySelector('.mobile-nav-toggle');
+        var nav = document.getElementById('mobileNav');
+        var backdrop = document.getElementById('navBackdrop');
+        toggle.classList.toggle('open');
+        nav.classList.toggle('open');
+        backdrop.classList.toggle('open');
+    }
+    function closeMobileNav() {
+        document.querySelector('.mobile-nav-toggle').classList.remove('open');
+        document.getElementById('mobileNav').classList.remove('open');
+        document.getElementById('navBackdrop').classList.remove('open');
+    }
+    document.getElementById('navBackdrop').addEventListener('click', closeMobileNav);
+    </script>
+</body>
+</html>

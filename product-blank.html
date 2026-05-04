@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product — Bez Ambar | Luxury Diamond Jewelry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="pdp-page">
+
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-left-group">
+                <button class="mobile-nav-toggle" onclick="toggleMobileNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+                <span class="menu-label" onclick="toggleMobileNav()">Menu</span>
+                <button class="header-icon-btn header-search-btn" aria-label="Search">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </button>
+            </div>
+            <a href="index.html" class="logo">Bez Ambar</a>
+            <div class="header-right-group">
+                <a href="contact.html" class="header-contact-link">Contact Us</a>
+                <a href="#" class="header-icon-btn" aria-label="Wishlist">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </a>
+                <a href="#" class="header-icon-btn" aria-label="Account">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </a>
+            </div>
+            <div class="mobile-nav-overlay" id="mobileNav">
+                <a href="collection.html">At the Bench</a>
+                <span class="mobile-cat-label">Categories</span>
+                <a href="collection.html" class="mobile-cat-link">All Jewelry</a>
+                <!-- BEGIN HIDDEN SUBCATS (restore when products have images) -->
+
+                <!--
+<a href="collection.html?cat=rings" class="mobile-cat-link">Rings</a>
+                <a href="collection.html?cat=engagement-rings" class="mobile-cat-link mobile-sub-link">Engagement Rings</a>
+                <a href="collection.html?cat=wedding-bands" class="mobile-cat-link mobile-sub-link">Wedding Bands</a>
+                <a href="collection.html?cat=mens-wedding-bands" class="mobile-cat-link mobile-sub-link">Men's Wedding Bands</a>
+                <a href="collection.html?cat=pendants" class="mobile-cat-link">Pendants</a>
+                <a href="collection.html?cat=necklaces" class="mobile-cat-link">Necklaces</a>
+                <a href="collection.html?cat=earrings" class="mobile-cat-link">Earrings</a>
+                <a href="collection.html?cat=stud-earrings" class="mobile-cat-link mobile-sub-link">Stud Earrings</a>
+                <a href="collection.html?cat=hug-earrings" class="mobile-cat-link mobile-sub-link">Hug Earrings</a>
+                <a href="collection.html?cat=hoop-earrings" class="mobile-cat-link mobile-sub-link">Hoop Earrings</a>
+                <a href="collection.html?cat=bracelets" class="mobile-cat-link">Bracelets</a>
+
+                -->
+
+                <!-- END HIDDEN SUBCATS -->
+                <a href="video-gallery.html">Bespoke Commissions</a>
+                <a href="journal.html">Journal</a>
+                <a href="our-story.html" class="mobile-cat-label" style="text-decoration:none;">Our Story</a>
+                <a href="about.html" class="mobile-cat-link">The Inventor</a>
+                <a href="the-bez-ambar-story.html" class="mobile-cat-link">The Bez Ambar Story</a>
+                <a href="blog.html" class="mobile-cat-link">Blog</a>
+                <a href="ring-size-chart.html" class="mobile-cat-link">Ring Size Chart</a>
+                <a href="warranty.html" class="mobile-cat-link">Warranty</a>
+            </div>
+        </div>
+    </header>
+    <div class="nav-backdrop" id="navBackdrop"></div>
+
+    <!-- Product Detail: two-column layout -->
+    <div class="pdp-container">
+
+        <!-- LEFT: Stacked Image Placeholders -->
+        <div class="pdp-images">
+            <a href="collection.html" class="pdp-back" aria-label="Back to collection">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5"/></svg>
+            </a>
+
+            <div class="pdp-image-slot">
+                <div class="image-placeholder tall"><p>Product Image</p></div>
+            </div>
+            <div class="pdp-image-slot">
+                <div class="image-placeholder tall"><p>Detail Image</p></div>
+            </div>
+            <div class="pdp-image-slot">
+                <div class="image-placeholder tall"><p>Lifestyle Image</p></div>
+            </div>
+        </div>
+
+        <!-- RIGHT: Product Details (sticky) -->
+        <div class="pdp-details">
+
+            <p class="pdp-sku">BA-XXX</p>
+
+            <h1 class="pdp-title">Product Name</h1>
+
+            <p class="pdp-price">Price Upon Request</p>
+
+            <a href="mailto:bez@bezambar.com?subject=Inquiry" class="pdp-cta-btn">Inquire Now</a>
+
+            <a href="contact.html" class="pdp-advisor-link">Contact an Advisor</a>
+
+            <div class="pdp-description">
+                A short description of the piece will appear here — the story behind the design, the stones, the cut, and the moment it was made for.
+            </div>
+
+            <div class="pdp-accordion">
+                <div class="pdp-accordion-item">
+                    <button class="pdp-accordion-btn" onclick="toggleAccordion(this)">
+                        Materials &amp; Specifications <span class="plus">+</span>
+                    </button>
+                    <div class="pdp-accordion-content">
+                        <div class="pdp-accordion-content-inner">
+                            Handcrafted in Los Angeles<br>
+                            Signed and numbered by Bez Ambar
+                        </div>
+                    </div>
+                </div>
+                <div class="pdp-accordion-item">
+                    <button class="pdp-accordion-btn" onclick="toggleAccordion(this)">
+                        Sustainability <span class="plus">+</span>
+                    </button>
+                    <div class="pdp-accordion-content">
+                        <div class="pdp-accordion-content-inner">
+                            Bez Ambar is committed to responsible sourcing. All diamonds are conflict-free and ethically sourced, certified by the Kimberley Process. Our precious metals are recycled and refined in-house at our Los Angeles atelier, minimizing environmental impact. Each piece is made to order, reducing waste and ensuring that every creation is crafted with intention and care.
+                        </div>
+                    </div>
+                </div>
+                <div class="pdp-accordion-item">
+                    <button class="pdp-accordion-btn" onclick="toggleAccordion(this)">
+                        Find a Store <span class="plus">+</span>
+                    </button>
+                    <div class="pdp-accordion-content">
+                        <div class="pdp-accordion-content-inner">
+                            <strong>Bez Ambar Atelier</strong><br>
+                            550 S. Hill Street, Suite 1088<br>
+                            Los Angeles, CA 90013<br><br>
+                            Monday – Friday: 9:00 AM – 5:00 PM<br>
+                            Saturday: By Appointment<br>
+                            Sunday: Closed<br><br>
+                            <a href="contact.html" style="color:#fff;text-decoration:underline;text-underline-offset:3px;">Book an Appointment</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="pdp-accordion-item">
+                    <button class="pdp-accordion-btn" onclick="toggleAccordion(this)">
+                        Delivery &amp; Returns <span class="plus">+</span>
+                    </button>
+                    <div class="pdp-accordion-content">
+                        <div class="pdp-accordion-content-inner">
+                            Complimentary fully insured shipping on all orders within the United States. International shipping available upon request. Each piece is carefully packaged in our signature Bez Ambar presentation box.<br><br>
+                            We want you to be completely satisfied with your purchase. Returns and exchanges are accepted within 14 days of delivery in original, unworn condition with all packaging. Custom and bespoke pieces are final sale. Please contact us for return authorization.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pdp-extra-links">
+                <a href="contact.html" class="pdp-extra-link">
+                    Visit Our Atelier <span>&rsaquo;</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- You May Also Like -->
+    <section class="pdp-related">
+        <h2>You May Also Like</h2>
+        <div class="pdp-related-grid">
+            <a href="product-blank.html" class="lv-product-card" data-category="rings">
+                <div class="lv-card-img"></div>
+                <svg class="lv-card-wishlist" viewBox="0 0 24 24" fill="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="currentColor" stroke-width="1.5"/></svg>
+                <div class="lv-card-info">
+                    <h3>Product Name</h3>
+                    <p class="lv-card-price">View More</p>
+                </div>
+            </a>
+            <a href="product-blank.html" class="lv-product-card" data-category="rings">
+                <div class="lv-card-img"></div>
+                <svg class="lv-card-wishlist" viewBox="0 0 24 24" fill="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="currentColor" stroke-width="1.5"/></svg>
+                <div class="lv-card-info">
+                    <h3>Product Name</h3>
+                    <p class="lv-card-price">View More</p>
+                </div>
+            </a>
+            <a href="product-blank.html" class="lv-product-card" data-category="rings">
+                <div class="lv-card-img"></div>
+                <svg class="lv-card-wishlist" viewBox="0 0 24 24" fill="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="currentColor" stroke-width="1.5"/></svg>
+                <div class="lv-card-info">
+                    <h3>Product Name</h3>
+                    <p class="lv-card-price">View More</p>
+                </div>
+            </a>
+            <a href="product-blank.html" class="lv-product-card" data-category="rings">
+                <div class="lv-card-img"></div>
+                <svg class="lv-card-wishlist" viewBox="0 0 24 24" fill="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="currentColor" stroke-width="1.5"/></svg>
+                <div class="lv-card-info">
+                    <h3>Product Name</h3>
+                    <p class="lv-card-price">View More</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-col"><h4>Explore</h4><a href="collection.html">At the Bench</a><a href="our-story.html">Our Story</a><a href="about.html">The Inventor</a><a href="journal.html">Journal</a><a href="blog.html">Blog</a></div>
+                <div class="footer-col"><h4>Services</h4><a href="contact.html">Bespoke Design</a><a href="contact.html">Repairs &amp; Cleaning</a><a href="contact.html">Personalization</a></div>
+                <div class="footer-col"><h4>Help</h4><a href="contact.html">Contact Us</a><a href="mailto:bez@bezambar.com">Email Us</a><a href="ring-size-chart.html">Ring Size Chart</a><a href="diamond-education.html">Diamond Education</a><a href="warranty.html">Warranty</a></div>
+                <div class="footer-col"><h4>Visit</h4><p>611 Wilshire Blvd</p><p>Los Angeles, CA 90017</p><p style="margin-top:8px;"><a href="mailto:bez@bezambar.com">bez@bezambar.com</a></p></div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo">BEZ AMBAR</div>
+                <div class="footer-legal">&copy; 2026 Bez Ambar Inc. All rights reserved. &middot; <a href="#">Privacy Policy</a> &middot; <a href="#">Terms</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Accordion toggle
+        function toggleAccordion(btn) {
+            const content = btn.nextElementSibling;
+            const isOpen = btn.classList.contains('open');
+            document.querySelectorAll('.pdp-accordion-btn').forEach(b => {
+                b.classList.remove('open');
+                b.nextElementSibling.style.maxHeight = null;
+            });
+            if (!isOpen) {
+                btn.classList.add('open');
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        }
+
+        // Mobile nav toggle
+        function toggleMobileNav() {
+            var toggle = document.querySelector('.mobile-nav-toggle');
+            var nav = document.getElementById('mobileNav');
+            var backdrop = document.getElementById('navBackdrop');
+            toggle.classList.toggle('open');
+            nav.classList.toggle('open');
+            backdrop.classList.toggle('open');
+        }
+        function closeMobileNav() {
+            document.querySelector('.mobile-nav-toggle').classList.remove('open');
+            document.getElementById('mobileNav').classList.remove('open');
+            document.getElementById('navBackdrop').classList.remove('open');
+        }
+        document.getElementById('navBackdrop').addEventListener('click', closeMobileNav);
+    </script>
+</body>
+</html>
