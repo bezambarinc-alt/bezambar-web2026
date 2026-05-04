@@ -387,6 +387,7 @@
                 object-fit: cover;
             }
             .hero-section .hero-overlay { display: block; background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6) 100%); }
+            .hero-section.first-hero .hero-overlay { background: transparent !important; }
             .hero-section .hero-content {
                 position: absolute !important;
                 z-index: 2;
@@ -826,7 +827,7 @@
     <div class="nav-backdrop" id="navBackdrop"></div>
 
     <!-- ==================== SECTION 1: Hero — The Bespoke Promise ==================== -->
-    <section class="hero-section">
+    <section class="hero-section first-hero">
         <img class="hero-bg-img" style="object-position: right 30%;"
             src="https://res.cloudinary.com/dlg2mou53/image/upload/f_auto,q_auto/v1775199953/Hero_Ruby_and_lady_in_a_galery_i0xns5.jpg"
             alt="Bez Ambar — What the Great Houses Cannot Make">
