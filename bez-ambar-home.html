@@ -229,6 +229,13 @@
         .segment__media .ph-box {
             position: absolute; inset: 0;
         }
+        .segment__media img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         .segment__content {
             padding: clamp(40px, 6vw, 100px);
             max-width: 600px;
@@ -817,12 +824,8 @@
          ============================================================ -->
     <section class="segment" id="segment-1">
         <div class="segment__media">
-            <div class="ph-box">
-                <div>
-                    Segment 1 Image
-                    <small>[Cloudinary URL — square or 4:3]</small>
-                </div>
-            </div>
+            <img src="https://res.cloudinary.com/dlg2mou53/image/upload/f_auto,q_auto,w_1400/v1775786208/Quadrillion_owciyv.jpg"
+                 alt="The Quadrillion — Bez Ambar Princess Cut" loading="lazy">
         </div>
         <div class="segment__content">
             <p class="segment__eyebrow">Atelier Legacy</p>
