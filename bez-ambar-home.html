@@ -84,8 +84,8 @@
         .hero-stack {
             position: relative;
             background: #0d0d0d;
-            /* total scroll height = 3 viewports (one per hero) */
-            height: 300vh;
+            /* total scroll height = 2 viewports (one per hero) */
+            height: 200vh;
         }
         .hero-pin {
             position: sticky;
@@ -103,13 +103,12 @@
             transform: translateY(0);
             will-change: transform;
         }
-        /* Hero 1 stays at translateY(0); heroes 2 & 3 start below viewport */
-        .hero[data-i="1"], .hero[data-i="2"] {
+        /* Hero 1 stays at translateY(0); hero 2 starts below viewport */
+        .hero[data-i="1"] {
             transform: translateY(100%);
         }
         .hero[data-i="0"] { z-index: 1; }
         .hero[data-i="1"] { z-index: 2; }
-        .hero[data-i="2"] { z-index: 3; }
         .hero__media {
             position: absolute; inset: 0;
             display: flex; align-items: center; justify-content: center;
@@ -726,37 +725,20 @@
                     <p class="hero__eyebrow">Liquid Carat&trade; Flex</p>
                     <h1 class="hero__headline">[Headline for Liquid Carat]</h1>
                     <p class="hero__sub">[Italic sub-line for Liquid Carat]</p>
-                    <a href="#hero-3-anchor" class="hero__cta">Discover</a>
-                </div>
-            </section>
-
-            <section class="hero" data-i="2">
-                <div class="hero__media ph-box">
-                    <div>
-                        Hero Video 3
-                        <small>[Cloudinary URL — full-bleed, autoplay loop, muted]</small>
-                    </div>
-                </div>
-                <div class="hero__overlay"></div>
-                <div class="hero__content">
-                    <p class="hero__eyebrow">[Eyebrow 3]</p>
-                    <h1 class="hero__headline">[Headline 3]</h1>
-                    <p class="hero__sub">[Italic sub-line 3]</p>
                     <a href="#segment-1" class="hero__cta">Discover</a>
                 </div>
             </section>
+
         </div>
     </div>
 
     <!-- Hidden scroll anchors used by Discover buttons -->
     <span id="hero-2-anchor" style="position:absolute;top:100vh;"></span>
-    <span id="hero-3-anchor" style="position:absolute;top:200vh;"></span>
 
     <!-- Right-side dot navigator (fixed) -->
     <div class="hero-dots is-visible" id="hero-dots-nav">
         <button class="hero-dots__dot is-active" data-i="0" aria-label="Go to film 1" type="button"></button>
         <button class="hero-dots__dot" data-i="1" aria-label="Go to film 2" type="button"></button>
-        <button class="hero-dots__dot" data-i="2" aria-label="Go to film 3" type="button"></button>
     </div>
 
     <script>
@@ -778,17 +760,13 @@
                 // The active scroll range is stackHeight - vh (because last vh is the sticky finish)
                 var progress = Math.max(0, Math.min(1, (-stackTop) / (stackHeight - vh)));
 
-                // 3 heroes → progress 0 to 0.5 = hero 1 visible, hero 2 sliding up
-                //            progress 0.5 to 1   = hero 2 fully covering, hero 3 sliding up
-                // Hero 1 stays at translateY(0); heroes 2 and 3 translate from 100% → 0%
-                var p2 = Math.max(0, Math.min(1, progress * 2));         // 0 → 1 over first half
-                var p3 = Math.max(0, Math.min(1, (progress - 0.5) * 2));  // 0 → 1 over second half
+                // 2 heroes → progress 0 to 1 drives hero 2 sliding up over hero 1
+                var p2 = Math.max(0, Math.min(1, progress));
 
                 heroes[1].style.transform = 'translateY(' + ((1 - p2) * 100) + '%)';
-                heroes[2].style.transform = 'translateY(' + ((1 - p3) * 100) + '%)';
 
-                // Active dot: 0 for progress < 0.33, 1 for < 0.66, 2 otherwise
-                var activeI = progress < 0.33 ? 0 : (progress < 0.66 ? 1 : 2);
+                // Active dot: 0 for first half, 1 for second half
+                var activeI = progress < 0.5 ? 0 : 1;
                 dots.forEach(function (d, idx) { d.classList.toggle('is-active', idx === activeI); });
             }
 
@@ -809,8 +787,8 @@
                     var rect = stack.getBoundingClientRect();
                     var stackTopAbsolute = window.scrollY + rect.top;
                     var stackScrollable = stack.offsetHeight - window.innerHeight;
-                    // i=0 → progress 0; i=1 → progress 0.5; i=2 → progress 1.0
-                    var targetProgress = i * 0.5;
+                    // 2 heroes: i=0 → progress 0; i=1 → progress 1.0
+                    var targetProgress = i;
                     var targetY = stackTopAbsolute + (stackScrollable * targetProgress);
                     window.scrollTo({ top: targetY, behavior: 'smooth' });
                 });
