@@ -211,21 +211,26 @@
         }
         .hero__cta:hover { background: #fff; color: var(--ink); border-color: #fff; }
 
-        /* ============ EDITORIAL SEGMENT (split image + text) ============ */
+        /* ============ EDITORIAL SEGMENT (split image + text, Patek-style proportions) ============ */
         .segment {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            min-height: 80vh;
             align-items: center;
+            gap: clamp(40px, 6vw, 100px);
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: clamp(80px, 12vw, 160px) clamp(40px, 5vw, 80px);
         }
         .segment--reverse .segment__media { order: 2; }
         .segment__media {
             position: relative;
             width: 100%;
-            height: 100%;
-            min-height: 480px;
+            max-width: 540px;
+            aspect-ratio: 4 / 5;
             overflow: hidden;
+            justify-self: end;
         }
+        .segment--reverse .segment__media { justify-self: start; }
         .segment__media .ph-box {
             position: absolute; inset: 0;
         }
@@ -237,10 +242,10 @@
             object-fit: cover;
         }
         .segment__content {
-            padding: clamp(40px, 6vw, 100px);
-            max-width: 600px;
-            justify-self: center;
+            max-width: 440px;
+            justify-self: start;
         }
+        .segment--reverse .segment__content { justify-self: end; }
         .segment__eyebrow {
             font-family: var(--sans);
             font-size: 11px;
@@ -671,9 +676,11 @@
 
         /* ============ RESPONSIVE ============ */
         @media (max-width: 900px) {
-            .segment { grid-template-columns: 1fr; }
+            .segment { grid-template-columns: 1fr; gap: 40px; padding: 60px 20px; }
             .segment--reverse .segment__media { order: 0; }
-            .segment__media { min-height: 360px; aspect-ratio: 4/3; }
+            .segment__media, .segment--reverse .segment__media { justify-self: center; }
+            .segment__content, .segment--reverse .segment__content { justify-self: center; max-width: 100%; }
+            .segment__media { aspect-ratio: 4/5; max-width: 420px; }
             .collections__grid { grid-template-columns: 1fr; gap: 50px; }
             .journal__grid { grid-template-columns: 1fr; gap: 50px; }
             .site-footer__grid { grid-template-columns: repeat(2, 1fr); }
