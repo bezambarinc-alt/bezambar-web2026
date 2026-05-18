@@ -419,6 +419,42 @@
             background: #0d0d0d;
             overflow: hidden;
         }
+
+        /* ============ CINEMATIC HERO-STYLE BREAK (single pane, hero typography) ============ */
+        .cinematic {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            background: #0d0d0d;
+        }
+        .cinematic__media {
+            position: absolute; inset: 0;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .cinematic__media iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: max(100vw, 177.78vh);
+            height: max(100vh, 56.25vw);
+            border: 0;
+            pointer-events: none;
+        }
+        .cinematic__overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.6) 100%);
+        }
+        .cinematic__content {
+            position: absolute;
+            left: clamp(40px, 6vw, 80px);
+            bottom: clamp(60px, 8vw, 110px);
+            max-width: 560px;
+            text-align: left;
+            color: #fff;
+        }
         .full-media__media, .full-media__media .ph-box {
             position: absolute; inset: 0;
         }
@@ -1077,19 +1113,21 @@
     </section>
 
     <!-- ============================================================
-         FULL-WIDTH SEGMENT — second cinematic break
-         [PLACEHOLDER VIDEO 3 or IMAGE 6]
+         CINEMATIC BREAK — hero-style full-screen video pane
+         (same visual treatment as the top hero stack, single pane)
          ============================================================ -->
-    <section class="full-media">
-        <div class="full-media__media ph-box">
-            <div>
-                Second Cinematic Break
-                <small>[Video or large hero image]</small>
-            </div>
+    <section class="cinematic">
+        <div class="cinematic__media">
+            <iframe src="https://player.vimeo.com/video/1129087306?background=1&autoplay=1&loop=1&muted=1&controls=0&autopause=0&playsinline=1"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    title="The Elysian Pear — Coming Soon"></iframe>
         </div>
-        <div class="full-media__caption">
-            <h2>[Editorial Caption]</h2>
-            <p>[Italic accompaniment]</p>
+        <div class="cinematic__overlay"></div>
+        <div class="cinematic__content">
+            <p class="hero__eyebrow">Coming Soon</p>
+            <h1 class="hero__headline">The Elysian Pear</h1>
+            <p class="hero__sub">A teardrop, reborn &mdash; the next chapter in the line of brilliance.</p>
         </div>
     </section>
 
