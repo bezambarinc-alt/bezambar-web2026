@@ -737,6 +737,100 @@
             line-height: 1.7;
         }
 
+        /* ============ FAMILY CAROUSEL — horizontal-scroll product family ============ */
+        .family {
+            padding: clamp(60px, 10vw, 120px) 0;
+            background: var(--paper-warm);
+            color: var(--ink);
+            overflow: hidden;
+        }
+        .family__header {
+            text-align: center;
+            margin-bottom: clamp(40px, 6vw, 70px);
+            padding: 0 40px;
+        }
+        .family__eyebrow {
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 18px;
+        }
+        .family__title {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 300;
+            letter-spacing: -0.015em;
+            color: var(--ink);
+        }
+        .family__scroll {
+            display: flex;
+            gap: 28px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            padding: 10px clamp(20px, 6vw, 80px) 30px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0,0,0,0.18) transparent;
+        }
+        .family__scroll::-webkit-scrollbar { height: 4px; }
+        .family__scroll::-webkit-scrollbar-track { background: transparent; }
+        .family__scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.18); border-radius: 2px; }
+        .family-card {
+            flex: 0 0 clamp(240px, 26vw, 340px);
+            scroll-snap-align: start;
+            text-align: center;
+        }
+        .family-card__media {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            background: #ede8df;
+            margin-bottom: 18px;
+        }
+        .family-card__media img,
+        .family-card__media .ph-box {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .family-card__name {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 6px;
+        }
+        .family-card__sub {
+            font-family: var(--sans);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+        }
+        .family__cta-wrap {
+            text-align: center;
+            margin-top: clamp(40px, 6vw, 60px);
+            padding: 0 40px;
+        }
+        .family__cta {
+            display: inline-block;
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+            border-bottom: 1px solid currentColor;
+            padding-bottom: 4px;
+            text-decoration: none;
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .family__cta:hover { color: var(--accent); border-color: var(--accent); }
+
         /* ============ NEWSLETTER ============ */
         .newsletter {
             padding: clamp(60px, 10vw, 120px) 40px;
@@ -1170,6 +1264,59 @@
             <button class="hero-dots__dot" data-i="1" aria-label="The Elysian Pear Band" type="button"></button>
         </div>
     </div>
+
+    <!-- ============================================================
+         FAMILY CAROUSEL — horizontal-scroll product family (6 cards)
+         [PLACEHOLDER IMAGES — replace each .ph-box with <img> + filename label]
+         ============================================================ -->
+    <section class="family">
+        <div class="family__header">
+            <p class="family__eyebrow">Discover</p>
+            <h2 class="family__title">The Family of the Elysian Cuts</h2>
+        </div>
+        <div class="family__scroll">
+
+            <article class="family-card">
+                <div class="family-card__media"><div class="ph-box"><div>Cut 1<small>[image + filename]</small></div></div></div>
+                <h3 class="family-card__name">[Cut 1 Name]</h3>
+                <p class="family-card__sub">[Filename]</p>
+            </article>
+
+            <article class="family-card">
+                <div class="family-card__media"><div class="ph-box"><div>Cut 2<small>[image + filename]</small></div></div></div>
+                <h3 class="family-card__name">[Cut 2 Name]</h3>
+                <p class="family-card__sub">[Filename]</p>
+            </article>
+
+            <article class="family-card">
+                <div class="family-card__media"><div class="ph-box"><div>Cut 3<small>[image + filename]</small></div></div></div>
+                <h3 class="family-card__name">[Cut 3 Name]</h3>
+                <p class="family-card__sub">[Filename]</p>
+            </article>
+
+            <article class="family-card">
+                <div class="family-card__media"><div class="ph-box"><div>Cut 4<small>[image + filename]</small></div></div></div>
+                <h3 class="family-card__name">[Cut 4 Name]</h3>
+                <p class="family-card__sub">[Filename]</p>
+            </article>
+
+            <article class="family-card">
+                <div class="family-card__media"><div class="ph-box"><div>Cut 5<small>[image + filename]</small></div></div></div>
+                <h3 class="family-card__name">[Cut 5 Name]</h3>
+                <p class="family-card__sub">[Filename]</p>
+            </article>
+
+            <article class="family-card">
+                <div class="family-card__media"><div class="ph-box"><div>Cut 6<small>[image + filename]</small></div></div></div>
+                <h3 class="family-card__name">[Cut 6 Name]</h3>
+                <p class="family-card__sub">[Filename]</p>
+            </article>
+
+        </div>
+        <div class="family__cta-wrap">
+            <a href="#" class="family__cta">Explore More &rarr;</a>
+        </div>
+    </section>
 
     <!-- ============================================================
          JOURNAL — three latest articles
