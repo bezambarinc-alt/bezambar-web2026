@@ -471,9 +471,9 @@
         }
         .collections__grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            max-width: 1400px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+            max-width: 1500px;
             margin: 0 auto;
         }
         .collection-card {
@@ -715,7 +715,7 @@
             .segment__media, .segment--reverse .segment__media { justify-self: center; }
             .segment__content, .segment--reverse .segment__content { justify-self: center; max-width: 100%; }
             .segment__media { aspect-ratio: 4/5; max-width: 420px; }
-            .collections__grid { grid-template-columns: 1fr; gap: 50px; }
+            .collections__grid { grid-template-columns: repeat(2, 1fr); gap: 36px; }
             .journal__grid { grid-template-columns: 1fr; gap: 50px; }
             .site-footer__grid { grid-template-columns: repeat(2, 1fr); }
             .site-header { padding: 14px 20px; }
@@ -962,11 +962,22 @@
 
             <div class="collection-card">
                 <div class="collection-card__media">
-                    <div class="ph-box">
-                        <div>Collection 3<small>[Image URL]</small></div>
-                    </div>
+                    <img src="https://res.cloudinary.com/dlg2mou53/image/upload/f_auto,q_auto/v1778099929/2ELS-30_r1chph.png" alt="Elysian Oval Band 2ELS-30" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
                 </div>
-                <h3 class="collection-card__name">[Collection 3 Name]</h3>
+                <h3 class="collection-card__name">Elysian Oval Band</h3>
+                <p class="collection-card__sku">2ELS-30</p>
+                <p class="collection-card__specs">G-H Color VVS</p>
+                <a href="#" class="collection-card__cta">Inquire</a>
+            </div>
+
+            <div class="collection-card">
+                <div class="collection-card__media">
+                    <img src="https://res.cloudinary.com/dlg2mou53/image/upload/f_auto,q_auto/v1778099929/2ELS-25_n7nkk4.png" alt="Elysian Oval Band 2ELS-25" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+                </div>
+                <h3 class="collection-card__name">Elysian Oval Band</h3>
+                <p class="collection-card__sku">2ELS-25</p>
+                <p class="collection-card__specs">22 stones &middot; G-H Color VVS &middot; 5.5 ct</p>
+                <p class="collection-card__price">$9,400</p>
                 <a href="#" class="collection-card__cta">Discover</a>
             </div>
 
