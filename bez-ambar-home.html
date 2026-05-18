@@ -770,7 +770,7 @@
         }
         .family__scroll {
             display: flex;
-            gap: 32px;
+            gap: 16px;
             overflow-x: auto;
             overflow-y: hidden;
             scroll-snap-type: x mandatory;
@@ -782,10 +782,14 @@
         .family__scroll::-webkit-scrollbar { height: 4px; }
         .family__scroll::-webkit-scrollbar-track { background: transparent; }
         .family__scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.18); border-radius: 2px; }
+        /* Card width sized so exactly 3 fit on desktop: (100vw - 2×padding - 2×gap) / 3 */
         .family-card {
-            flex: 0 0 clamp(320px, 36vw, 480px);
+            flex: 0 0 clamp(300px, calc((100vw - 192px) / 3), 620px);
             scroll-snap-align: start;
             text-align: center;
+        }
+        @media (max-width: 900px) {
+            .family-card { flex: 0 0 clamp(260px, 70vw, 420px); }
         }
         .family__nav {
             position: absolute;
