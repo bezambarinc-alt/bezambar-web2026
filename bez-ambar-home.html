@@ -993,8 +993,15 @@
             .segment { grid-template-columns: 1fr; gap: 32px; padding: 30px 20px; }
             .segment--reverse .segment__media { order: 0; }
             .segment__media, .segment--reverse .segment__media { justify-self: center; }
-            .segment__content, .segment--reverse .segment__content { justify-self: center; max-width: 100%; }
+            .segment__content, .segment--reverse .segment__content {
+                justify-self: center;
+                max-width: 560px;
+                text-align: center;
+            }
             .segment__media { aspect-ratio: 4/5; max-width: 420px; }
+            /* Design Philosophy override is irrelevant once stacked — revert to default segment grid */
+            #segment-philosophy { max-width: 100%; grid-template-columns: 1fr; }
+            #segment-philosophy .segment__media { max-width: 420px; }
             .collections__grid { grid-template-columns: 1fr; gap: 50px; }
             .journal__grid { grid-template-columns: 1fr; gap: 50px; }
             .site-footer__grid { grid-template-columns: repeat(2, 1fr); }
