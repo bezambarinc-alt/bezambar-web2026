@@ -468,6 +468,68 @@
             font-size: clamp(2rem, 4vw, 3.2rem);
             font-weight: 300;
             color: var(--ink);
+            margin-bottom: 22px;
+        }
+        .collections__lede {
+            font-family: var(--sans);
+            font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--ink-muted);
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .pricing-block {
+            max-width: 980px;
+            margin: clamp(50px, 7vw, 90px) auto 0;
+            padding: 0 20px;
+            text-align: left;
+        }
+        .pricing-block__heading {
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin: 0 0 18px 0;
+            text-align: center;
+        }
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+        }
+        .pricing-table th,
+        .pricing-table td {
+            padding: 14px 12px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            font-family: var(--sans);
+            font-size: 13px;
+            color: var(--ink);
+            text-align: left;
+        }
+        .pricing-table th {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+        }
+        .pricing-table td.sku {
+            font-weight: 600;
+            letter-spacing: 0.06em;
+        }
+        .pricing-table td.price {
+            font-family: var(--serif);
+            font-size: 1rem;
+            text-align: right;
+            white-space: nowrap;
+        }
+        .pricing-table th.price-h { text-align: right; }
+        @media (max-width: 600px) {
+            .pricing-table th, .pricing-table td { padding: 12px 6px; font-size: 12px; }
+            .pricing-table td.price { font-size: 0.95rem; }
         }
         .collections__grid {
             display: grid;
@@ -931,8 +993,9 @@
          ============================================================ -->
     <section class="collections">
         <div class="collections__header">
-            <p class="collections__eyebrow">[Collections Eyebrow]</p>
-            <h2 class="collections__title">[Collections Section Title]</h2>
+            <p class="collections__eyebrow">Featuring The Elysian Cut&trade; Oval Bands</p>
+            <h2 class="collections__title">The Elysian Oval Band</h2>
+            <p class="collections__lede">A continuous halo of Bez Ambar&rsquo;s signature Elysian Cut&trade; &mdash; an elongated oval-baguette hybrid that captures more light along the finger than any band before it. Handcrafted in Los Angeles.</p>
         </div>
         <div class="collections__grid">
 
@@ -942,9 +1005,6 @@
                 </div>
                 <h3 class="collection-card__name">Elysian Oval Band</h3>
                 <p class="collection-card__sku">2ELS-70</p>
-                <p class="collection-card__specs">17 stones &middot; G-H Color VVS &middot; 11.9 ct</p>
-                <p class="collection-card__price">$31,200</p>
-                <a href="#" class="collection-card__cta">Discover</a>
             </div>
 
             <div class="collection-card">
@@ -953,9 +1013,6 @@
                 </div>
                 <h3 class="collection-card__name">Elysian Oval Band</h3>
                 <p class="collection-card__sku">2ELS-50</p>
-                <p class="collection-card__specs">18 stones &middot; G-H Color VVS &middot; 9.9 ct</p>
-                <p class="collection-card__price">$24,300</p>
-                <a href="#" class="collection-card__cta">Discover</a>
             </div>
 
             <div class="collection-card">
@@ -964,11 +1021,48 @@
                 </div>
                 <h3 class="collection-card__name">Elysian Oval Band</h3>
                 <p class="collection-card__sku">2ELS-25</p>
-                <p class="collection-card__specs">22 stones &middot; G-H Color VVS &middot; 5.5 ct</p>
-                <p class="collection-card__price">$9,400</p>
-                <a href="#" class="collection-card__cta">Discover</a>
             </div>
 
+        </div>
+
+        <div class="pricing-block">
+            <p class="pricing-block__heading">Full Eternity &mdash; Retail Pricing</p>
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>SKU</th>
+                        <th>Stones</th>
+                        <th>Color / Clarity</th>
+                        <th>Total ct</th>
+                        <th class="price-h">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="sku">2ELS-25</td><td>22</td><td>White VVS</td><td>5.5 ct</td><td class="price">$9,400</td></tr>
+                    <tr><td class="sku">2ELS-30</td><td>21</td><td>White VVS</td><td>6.51 ct</td><td class="price">$12,700</td></tr>
+                    <tr><td class="sku">2ELS-50</td><td>18</td><td>White VVS</td><td>9.9 ct</td><td class="price">$24,300</td></tr>
+                    <tr><td class="sku">2ELS-70</td><td>17</td><td>G-H Color VVS</td><td>11.9 ct</td><td class="price">$31,200</td></tr>
+                </tbody>
+            </table>
+
+            <p class="pricing-block__heading">Halfway Band &mdash; Retail Pricing</p>
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>SKU</th>
+                        <th>Stones</th>
+                        <th>Color / Clarity</th>
+                        <th>Total ct</th>
+                        <th class="price-h">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="sku">2ELS-25H</td><td>11</td><td>White VVS</td><td>2.75 ct</td><td class="price">$5,700</td></tr>
+                    <tr><td class="sku">2ELS-30H</td><td>11</td><td>White VVS</td><td>3.41 ct</td><td class="price">$7,600</td></tr>
+                    <tr><td class="sku">2ELS-50H</td><td>9</td><td>White VVS</td><td>4.95 ct</td><td class="price">$13,100</td></tr>
+                    <tr><td class="sku">2ELS-70H</td><td>7</td><td>G-H Color VVS</td><td>4.90 ct</td><td class="price">$14,000</td></tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
