@@ -782,14 +782,14 @@
         .family__scroll::-webkit-scrollbar { height: 4px; }
         .family__scroll::-webkit-scrollbar-track { background: transparent; }
         .family__scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.18); border-radius: 2px; }
-        /* Card width sized so exactly 3 fit on desktop: (100vw - 2×padding - 2×gap) / 3 */
+        /* Card width: 25% bigger than the exact-3-per-row baseline */
         .family-card {
-            flex: 0 0 clamp(300px, calc((100vw - 192px) / 3), 620px);
+            flex: 0 0 clamp(375px, calc((100vw - 192px) * 1.25 / 3), 775px);
             scroll-snap-align: start;
             text-align: center;
         }
         @media (max-width: 900px) {
-            .family-card { flex: 0 0 clamp(260px, 70vw, 420px); }
+            .family-card { flex: 0 0 clamp(300px, 80vw, 520px); }
         }
         .family__nav {
             position: absolute;
