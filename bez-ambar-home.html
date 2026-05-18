@@ -445,6 +445,20 @@
         .cinematic[data-i="1"] { transform: translateY(100%); }
         .cinematic[data-i="0"] { z-index: 1; }
         .cinematic[data-i="1"] { z-index: 2; }
+        .cinematic-dots {
+            position: fixed;
+            top: 50%;
+            right: 28px;
+            transform: translateY(-50%);
+            z-index: 30;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
+        }
+        .cinematic-dots.is-visible { opacity: 1; pointer-events: auto; }
         .cinematic__media {
             position: absolute; inset: 0;
             display: flex; align-items: center; justify-content: center;
@@ -971,30 +985,6 @@
             }, { threshold: 0 });
             io.observe(sentinel);
         })();
-
-        // Cinematic stack — same slide-up pattern, no dots
-        (function () {
-            var stack = document.getElementById('cinematic-stack');
-            if (!stack) return;
-            var panes = stack.querySelectorAll('.cinematic');
-            if (panes.length < 2) return;
-
-            var ticking = false;
-            function update() {
-                ticking = false;
-                var rect = stack.getBoundingClientRect();
-                var vh = window.innerHeight;
-                var stackHeight = rect.height;
-                var progress = Math.max(0, Math.min(1, (-rect.top) / (stackHeight - vh)));
-                panes[1].style.transform = 'translateY(' + ((1 - progress) * 100) + '%)';
-            }
-            function onScroll() {
-                if (!ticking) { requestAnimationFrame(update); ticking = true; }
-            }
-            window.addEventListener('scroll', onScroll, { passive: true });
-            window.addEventListener('resize', onScroll);
-            update();
-        })();
     </script>
 
     <!-- ============================================================
@@ -1161,7 +1151,7 @@
 
             <section class="cinematic" data-i="0">
                 <div class="cinematic__media">
-                    <iframe src="https://player.vimeo.com/video/1193149437?background=1&autoplay=1&loop=1&muted=1&controls=0&autopause=0&playsinline=1"
+                    <iframe src="https://player.vimeo.com/video/1193140625?background=1&autoplay=1&loop=1&muted=1&controls=0&autopause=0&playsinline=1"
                             allow="autoplay; fullscreen; picture-in-picture"
                             referrerpolicy="strict-origin-when-cross-origin"
                             title="The Elysian Pear — Coming Soon"></iframe>
@@ -1176,7 +1166,7 @@
 
             <section class="cinematic" data-i="1">
                 <div class="cinematic__media">
-                    <iframe src="https://player.vimeo.com/video/1193140625?background=1&autoplay=1&loop=1&muted=1&controls=0&autopause=0&playsinline=1"
+                    <iframe src="https://player.vimeo.com/video/1193149437?background=1&autoplay=1&loop=1&muted=1&controls=0&autopause=0&playsinline=1"
                             allow="autoplay; fullscreen; picture-in-picture"
                             referrerpolicy="strict-origin-when-cross-origin"
                             title="The Elysian Pear Band"></iframe>
@@ -1189,6 +1179,12 @@
                 </div>
             </section>
 
+        </div>
+
+        <!-- Dot navigator for cinematic stack (visible only while in section) -->
+        <div class="cinematic-dots" id="cinematic-dots">
+            <button class="hero-dots__dot is-active" data-i="0" aria-label="Coming soon — Elysian Pear" type="button"></button>
+            <button class="hero-dots__dot" data-i="1" aria-label="The Elysian Pear Band" type="button"></button>
         </div>
     </div>
 
@@ -1295,6 +1291,60 @@
          TRACKING — D1 view logger
          ============================================================ -->
     <img src="https://galleries.bezambarinc.workers.dev/t?p=bez-ambar-home" style="position:absolute;width:1px;height:1px;opacity:0;" alt="">
+
+    <!-- Cinematic stack scroll behavior (must run AFTER cinematic-stack HTML is in DOM) -->
+    <script>
+        (function () {
+            var stack = document.getElementById('cinematic-stack');
+            if (!stack) return;
+            var panes = stack.querySelectorAll('.cinematic');
+            if (panes.length < 2) return;
+            var dotsNav = document.getElementById('cinematic-dots');
+            var dots = dotsNav ? dotsNav.querySelectorAll('.hero-dots__dot') : [];
+
+            var ticking = false;
+            function update() {
+                ticking = false;
+                var rect = stack.getBoundingClientRect();
+                var vh = window.innerHeight;
+                var stackHeight = rect.height;
+                var progress = Math.max(0, Math.min(1, (-rect.top) / (stackHeight - vh)));
+                panes[1].style.transform = 'translateY(' + ((1 - progress) * 100) + '%)';
+
+                // Active dot
+                var activeI = progress < 0.5 ? 0 : 1;
+                dots.forEach(function (d, idx) { d.classList.toggle('is-active', idx === activeI); });
+            }
+            function onScroll() {
+                if (!ticking) { requestAnimationFrame(update); ticking = true; }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll);
+            update();
+
+            // Dot click → jump to that pane
+            dots.forEach(function (d) {
+                d.addEventListener('click', function () {
+                    var i = +d.dataset.i;
+                    var rect = stack.getBoundingClientRect();
+                    var stackTopAbs = window.scrollY + rect.top;
+                    var scrollable = stack.offsetHeight - window.innerHeight;
+                    var targetY = stackTopAbs + (scrollable * i);
+                    window.scrollTo({ top: targetY, behavior: 'smooth' });
+                });
+            });
+
+            // Show dots only while cinematic-stack is in viewport
+            if (dotsNav) {
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        dotsNav.classList.toggle('is-visible', e.isIntersecting);
+                    });
+                }, { threshold: 0.05 });
+                io.observe(stack);
+            }
+        })();
+    </script>
 
 </body>
 </html>
