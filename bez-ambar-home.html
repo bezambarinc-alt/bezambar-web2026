@@ -784,12 +784,12 @@
         .family__scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.18); border-radius: 2px; }
         /* One main card + clear peek of next — Patek pattern. Arrows live in the gap between them. */
         .family-card {
-            flex: 0 0 clamp(400px, 60vw, 980px);
+            flex: 0 0 clamp(280px, 42vw, 685px);
             scroll-snap-align: start;
             text-align: center;
         }
         @media (max-width: 900px) {
-            .family-card { flex: 0 0 clamp(300px, 82vw, 540px); }
+            .family-card { flex: 0 0 clamp(220px, 58vw, 380px); }
         }
         .family__nav {
             position: absolute;
@@ -818,7 +818,7 @@
         .family__nav--prev { left: clamp(8px, 3vw, 36px); }
         .family__nav--next {
             /* gap-aware positioning: 100vw - card-width - left-padding gives where the peek begins */
-            right: max(20px, calc(100vw - clamp(400px, 60vw, 980px) - clamp(20px, 6vw, 80px) - 60px));
+            right: max(20px, calc(100vw - clamp(280px, 42vw, 685px) - clamp(20px, 6vw, 80px) - 60px));
         }
         @media (max-width: 900px) {
             .family__nav--next { right: clamp(8px, 3vw, 36px); }
