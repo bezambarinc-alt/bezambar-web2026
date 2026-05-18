@@ -765,13 +765,17 @@
             letter-spacing: -0.015em;
             color: var(--ink);
         }
+        .family__viewport {
+            position: relative;
+        }
         .family__scroll {
             display: flex;
-            gap: 28px;
+            gap: 32px;
             overflow-x: auto;
             overflow-y: hidden;
             scroll-snap-type: x mandatory;
-            padding: 10px clamp(20px, 6vw, 80px) 30px;
+            scroll-behavior: smooth;
+            padding: 10px clamp(20px, 6vw, 80px) 36px;
             scrollbar-width: thin;
             scrollbar-color: rgba(0,0,0,0.18) transparent;
         }
@@ -779,9 +783,36 @@
         .family__scroll::-webkit-scrollbar-track { background: transparent; }
         .family__scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.18); border-radius: 2px; }
         .family-card {
-            flex: 0 0 clamp(240px, 26vw, 340px);
+            flex: 0 0 clamp(320px, 36vw, 480px);
             scroll-snap-align: start;
             text-align: center;
+        }
+        .family__nav {
+            position: absolute;
+            top: calc(50% - 40px);
+            transform: translateY(-50%);
+            z-index: 5;
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid rgba(0,0,0,0.08);
+            box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+            color: var(--ink);
+            font-size: 22px;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s, transform 0.2s;
+            opacity: 0.92;
+        }
+        .family__nav:hover { opacity: 1; transform: translateY(-50%) scale(1.06); }
+        .family__nav:disabled { opacity: 0.25; cursor: default; }
+        .family__nav--prev { left: clamp(8px, 2vw, 28px); }
+        .family__nav--next { right: clamp(8px, 2vw, 28px); }
+        @media (max-width: 640px) {
+            .family__nav { width: 42px; height: 42px; font-size: 18px; }
         }
         .family-card__media {
             position: relative;
@@ -1274,7 +1305,10 @@
             <p class="family__eyebrow">Discover</p>
             <h2 class="family__title">The Family of the Elysian Cuts</h2>
         </div>
-        <div class="family__scroll">
+        <div class="family__viewport">
+        <button class="family__nav family__nav--prev" id="family-prev" aria-label="Previous">&larr;</button>
+        <button class="family__nav family__nav--next" id="family-next" aria-label="Next">&rarr;</button>
+        <div class="family__scroll" id="family-scroll">
 
             <article class="family-card">
                 <div class="family-card__media">
@@ -1332,6 +1366,7 @@
                 <p class="family-card__sub">Elysian&nbsp;Cut&nbsp;Emerald</p>
             </article>
 
+        </div>
         </div>
         <div class="family__cta-wrap">
             <a href="#" class="family__cta">Explore More &rarr;</a>
@@ -1441,6 +1476,37 @@
          TRACKING — D1 view logger
          ============================================================ -->
     <img src="https://galleries.bezambarinc.workers.dev/t?p=bez-ambar-home" style="position:absolute;width:1px;height:1px;opacity:0;" alt="">
+
+    <!-- Family carousel navigation arrows -->
+    <script>
+        (function () {
+            var track = document.getElementById('family-scroll');
+            var prev = document.getElementById('family-prev');
+            var next = document.getElementById('family-next');
+            if (!track || !prev || !next) return;
+            function cardStep() {
+                var card = track.querySelector('.family-card');
+                if (!card) return 320;
+                var gap = parseInt(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 32, 10) || 32;
+                return card.getBoundingClientRect().width + gap;
+            }
+            function syncDisabled() {
+                prev.disabled = track.scrollLeft <= 2;
+                next.disabled = track.scrollLeft >= (track.scrollWidth - track.clientWidth - 2);
+            }
+            prev.addEventListener('click', function () {
+                track.scrollBy({ left: -cardStep(), behavior: 'smooth' });
+            });
+            next.addEventListener('click', function () {
+                track.scrollBy({ left: cardStep(), behavior: 'smooth' });
+            });
+            track.addEventListener('scroll', syncDisabled, { passive: true });
+            window.addEventListener('resize', syncDisabled);
+            // Start at left
+            track.scrollLeft = 0;
+            syncDisabled();
+        })();
+    </script>
 
     <!-- Cinematic stack scroll behavior (must run AFTER cinematic-stack HTML is in DOM) -->
     <script>
