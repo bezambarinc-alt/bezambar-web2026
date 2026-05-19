@@ -811,9 +811,13 @@
             flex: 0 0 700px;
             scroll-snap-align: start;
             text-align: center;
+            cursor: pointer;
+            transition: flex-basis 0.45s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        .family-card.is-expanded { flex: 0 0 1000px; }
         @media (max-width: 900px) {
             .family-card { flex: 0 0 100vw; }
+            .family-card.is-expanded { flex: 0 0 100vw; }
             .family__scroll { padding-left: 0; padding-right: 0; }
         }
         .family__nav {
@@ -1470,6 +1474,21 @@
             // Start at left
             track.scrollLeft = 0;
             syncDisabled();
+
+            // Click a card → expand it to 1000px; click again or another card to collapse/swap
+            track.querySelectorAll('.family-card').forEach(function (card) {
+                card.addEventListener('click', function () {
+                    track.querySelectorAll('.family-card.is-expanded').forEach(function (c) {
+                        if (c !== card) c.classList.remove('is-expanded');
+                    });
+                    card.classList.toggle('is-expanded');
+                    if (card.classList.contains('is-expanded')) {
+                        setTimeout(function () {
+                            card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                        }, 50);
+                    }
+                });
+            });
         })();
     </script>
 
