@@ -797,7 +797,7 @@
             gap: 0;
             overflow-x: auto;
             overflow-y: hidden;
-            scroll-snap-type: x mandatory;
+            scroll-snap-type: x proximity;
             scroll-behavior: smooth;
             padding: 10px clamp(20px, 6vw, 80px) 36px;
             scrollbar-width: thin;
@@ -840,14 +840,8 @@
         .family__nav:disabled { opacity: 0.25; cursor: default; }
         /* Place arrows in the gap that appears between the main card and the peek card.
            Right arrow sits roughly at the right edge of the main card. */
-        .family__nav--prev { left: clamp(8px, 3vw, 36px); }
-        .family__nav--next {
-            /* gap-aware positioning: 100vw - card-width - left-padding gives where the peek begins */
-            right: max(20px, calc(100vw - 700px - clamp(20px, 6vw, 80px) - 60px));
-        }
-        @media (max-width: 900px) {
-            .family__nav--next { right: clamp(8px, 3vw, 36px); }
-        }
+        .family__nav--prev { left: clamp(8px, 2vw, 28px); }
+        .family__nav--next { right: clamp(8px, 2vw, 28px); }
         @media (max-width: 640px) {
             .family__nav { width: 42px; height: 42px; font-size: 18px; }
         }
