@@ -11,6 +11,12 @@
     <meta property="og:description" content="[PLACEHOLDER — OG description]">
     <meta property="og:image" content="[PLACEHOLDER — OG image URL]">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231a1a1a'/%3E%3Ctext x='16' y='22' font-family='serif' font-size='18' font-weight='700' fill='%23c5a258' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+    <!-- Preconnect to Vimeo so hero videos start loading faster (saves DNS + TLS handshake on first iframe fetch) -->
+    <link rel="preconnect" href="https://player.vimeo.com" crossorigin>
+    <link rel="preconnect" href="https://i.vimeocdn.com" crossorigin>
+    <link rel="preconnect" href="https://f.vimeocdn.com" crossorigin>
+    <link rel="dns-prefetch" href="https://player.vimeo.com">
+    <link rel="dns-prefetch" href="https://i.vimeocdn.com">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@200;300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Lyon Text Regular (Fontstand web font rental, licensed to bezambar.com / bezambar-web2026.vercel.app / galleries.bezambarinc.workers.dev) -->
     <link rel="stylesheet" href="https://webfonts.fontstand.com/WF-099839-d89c1d499f0c1f40d1e6d7330af17f97.css" type="text/css"/>
@@ -1047,7 +1053,7 @@
     <div class="hero-stack" id="hero-stack">
         <div class="hero-pin">
             <section class="hero" data-i="0">
-                <div class="hero__media">
+                <div class="hero__media" style="background:#0d0d0d url('https://vumbnail.com/1192444919.jpg') center/cover no-repeat;">
                     <iframe src="https://player.vimeo.com/video/1192444919?background=1&autoplay=1&loop=1&muted=1&controls=0&autopause=0"
                             allow="autoplay; fullscreen; picture-in-picture"
                             referrerpolicy="strict-origin-when-cross-origin"
@@ -1062,7 +1068,7 @@
             </section>
 
             <section class="hero" data-i="1">
-                <div class="hero__media">
+                <div class="hero__media" style="background:#0d0d0d url('https://vumbnail.com/1193154076.jpg') center/cover no-repeat;">
                     <iframe src="https://player.vimeo.com/video/1193154076?background=1&autoplay=1&loop=1&muted=1&controls=0&autopause=0&playsinline=1"
                             allow="autoplay; fullscreen; picture-in-picture"
                             referrerpolicy="strict-origin-when-cross-origin"
@@ -1265,7 +1271,7 @@
         <div class="cinematic-pin">
 
             <section class="cinematic" data-i="0">
-                <div class="cinematic__media">
+                <div class="cinematic__media" style="background:#0d0d0d url('https://vumbnail.com/1193140625.jpg') center/cover no-repeat;">
                     <iframe src="https://player.vimeo.com/video/1193140625?background=1&autoplay=1&loop=1&muted=1&controls=0&autopause=0&playsinline=1"
                             allow="autoplay; fullscreen; picture-in-picture"
                             referrerpolicy="strict-origin-when-cross-origin"
@@ -1280,7 +1286,7 @@
             </section>
 
             <section class="cinematic" data-i="1">
-                <div class="cinematic__media">
+                <div class="cinematic__media" style="background:#0d0d0d url('https://vumbnail.com/1193149437.jpg') center/cover no-repeat;">
                     <iframe src="https://player.vimeo.com/video/1193149437?background=1&autoplay=1&loop=1&muted=1&controls=0&autopause=0&playsinline=1"
                             allow="autoplay; fullscreen; picture-in-picture"
                             referrerpolicy="strict-origin-when-cross-origin"
